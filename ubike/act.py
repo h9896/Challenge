@@ -46,7 +46,7 @@ class condition():
             lat = float(lat)
             lng = float(lng)
             if -90 <= lat <= 90 and -180 <= lng <= 180:
-                return 10
+                return True
             else:
                 return False
         except ValueError:
