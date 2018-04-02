@@ -40,11 +40,14 @@ class data_import():
         else:
             return False
 
-class condition():
-    def is_valid(lat, lng):  
+class condition(object):
+    def __init__(self, lat, lng):
+        self.lat = lat
+        self.lng = lng
+    def is_valid(self):  
         try:
-            lat = float(lat)
-            lng = float(lng)
+            lat = float(self.lat)
+            lng = float(self.lng)
             if -90 <= lat <= 90 and -180 <= lng <= 180:
                 return True
             else:
@@ -52,9 +55,9 @@ class condition():
         except ValueError:
             return False
 
-    def is_in_boundary(lat, lng):
+    def is_in_boundary(self):
         # get located point
-        response = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng={lat},{lng}'.format(lat=lat, lng=lng))
+        response = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng={lat},{lng}'.format(lat=self.lat, lng=self.lng))
         data = response.json()
         if data['status'] == 'OK':
             if len(data['results'][0]['address_components'])>=3:
@@ -69,13 +72,13 @@ class condition():
         else:
             return False
 
-    def are_stations_full(data):  
+    def are_stations_full(self, data):  
         for i in data:
             if int(data[i]['bemp']) > 0:
                 return False
         return True
     
-    def is_active(data):
+    def is_active(self, data):
         for i in data:
             if int(data[i]['act']) == 1:
                 return True
@@ -101,11 +104,11 @@ class stations():
             
     def find2(lat, lng):
             
-        if not condition.is_valid(lat, lng):
+        if not condition(lat, lng).is_valid():
             data = {'code' : -1, 'result' : []}
             return data
             
-        if not condition.is_in_boundary(lat, lng):
+        if not condition(lat, lng).is_in_boundary():
             data = {'code' : -2, 'result' : []}
             return data
                 
@@ -114,7 +117,7 @@ class stations():
             data = {'code' : -3, 'result' : []}
             return data
                 
-        if condition.are_stations_full(youbike):
+        if condition(lat, lng).are_stations_full(youbike):
             data = {'code' : 1, 'result' : []}
             return data
                         

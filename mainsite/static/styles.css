@@ -1,0 +1,84 @@
+.button {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #3cadd4;
+    border-radius: 30px;
+    border: 0;
+    color: #ffffff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    height: 2.85em;
+    line-height: 2.95em;
+    padding: 0 2em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 100%;
+}
+.tabulation{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.container{   
+    top:10%;
+    font-size: 100%;
+    padding-top:0;
+    position:relative;
+    width:30%;
+    height:10%;
+    font-family: Comic Sans MS, Comic Sans, cursive; 
+}
+.container2{   
+    top:10%;
+    font-size: 100%;
+    padding-top:0;
+    position:relative;
+    width:30%;
+    height:20%;
+    font-family: Comic Sans MS, Comic Sans, cursive; 
+}
+.greendot {
+    height: 20px;
+    width: 20px;
+    background-color: #0df463;
+    border-radius: 50%;
+    display: inline-block;
+    stroke: steelblue;
+    position:absolute;
+    top:3%;
+    left:0;
+}
+.reddot {
+    height: 20px;
+    width: 20px;
+    background-color: #f90505;
+    border-radius: 50%;
+    display: inline-block;
+    stroke: steelblue;
+    position:absolute;
+    top:35%;
+    left:0;
+}
+.buledot {
+    height: 20px;
+    width: 20px;
+    background-color: #6495ed;
+    border-radius: 50%;
+    display: inline-block;
+    stroke: steelblue;
+    position:absolute;
+    top:71%;
+    left:0;
+}
+body {
+    background-color:#fbede5;
+}
+h2{
+    font-family:Andale Mono, monospace, serif;
+    font-style: italic;
+}
